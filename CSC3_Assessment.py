@@ -1,30 +1,47 @@
 import tkinter as tk
 import math
 
-ROOT = tk.Tk()
-
-class LoginScreen:
+class root(tk.Tk):
     def __init__(self):
-        loginframe = tk.Frame(master=None)
-        loginframe.grid(column=0,row=0)
-        testlabellogin = tk.Label(master=loginframe,text='Login Screen')
-        testlabellogin.grid()
+        tk.Tk.__init__(self)
+        frame_container = tk.Frame(self)
+        frame_container.pack(side='top',fill='both',expand=True)
+        frame_container.grid_rowconfigure(0,weight=1)
+        frame_container.grid_columnconfigure(0,weight=1)
 
-class LevelSelect:
-    def __init__(self):
-        levelselect = tk.Frame(master=None)
-        levelselect.grid(column=0,row=0)
-        testlabellevelselect = tk.Label(master=levelselect,text='Level Select')
-        testlabellevelselect.grid()
+        self.frames={}
+        for Frame in (LoginPage, LevelSelect, Questions):
+            page_name = Frame.__name__
+            frame = Frame(parent=frame_container,controller=self)
+            self.frames[page_name] = frame
+            frame.grid(row=0,column=0,sticky='nsew')
+        
+        self.show_frame('LoginPage')
 
-class Questions:
-    def __init__(self):
-        questions = tk.Frame(master=None)
-        questions.grid(column=0,row=0)
-        testlabelquestions = tk.Label(master=questions,text='Questions')
-        testlabelquestions.grid()
+    def show_frame(self, page_name):
+        frame = self.frames[page_name]
+        frame.tkraise()
 
-tk.Button(text='Raise Login Frame',command=levelselect.tkraise).grid()
-tk.Button(text='Raise Level Select Frame',command=loginframe.tkraise).grid()
-tk.Button(text='Raise Questions Frame',command=questions.tkraise).grid()
-ROOT.mainloop()
+class LoginPage(tk.Frame):
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self,parent)
+        self.controller= controller
+        tk.Label(self, text='Login Label').pack(padx=10,pady=10)
+        tk.Button(self, text='Go to Level Select', command=lambda: controller.show_frame('LevelSelect')).pack()
+
+class LevelSelect(tk.Frame):
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self,parent)
+        self.controller = controller
+        tk.Label(self, text='Level Select').pack(padx=10,pady=10)
+        tk.Button(self, text='Go to Questions', command=lambda: controller.show_frame('Questions')).pack()
+
+class Questions(tk.Frame):
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self,parent)
+        self.controller = controller
+        tk.Label(self, text='Questions').pack(padx=10,pady=10)
+        tk.Button(self, text='Go to Login', command=lambda: controller.show_frame('LoginPage')).pack()
+
+root = root()
+root.mainloop()
