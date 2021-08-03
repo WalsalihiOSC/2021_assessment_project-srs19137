@@ -1,6 +1,13 @@
 import tkinter as tk
 import math
 
+class User:
+    def __init__(self, first_name, last_name, age, current_hs):
+        self.first_name=fname 
+        self.last_name=lname 
+        self.age=age 
+        self.current_hs=current_highscore
+
 class root(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
@@ -26,7 +33,11 @@ class LoginPage(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self,parent)
         self.controller= controller
-        tk.Label(self, text='Login Label').pack(padx=10,pady=10)
+        tk.Label(self, text='Login Screen').pack(padx=10,pady=10)
+        tk.Label(self, text='First Name:').pack()
+        fnameEntry = tk.Entry().pack()
+        tk.Label(self, text='Last Name:').pack()
+        lnameEntry = tk.Entry().pack()
         tk.Button(self, text='Go to Level Select', command=lambda: controller.show_frame('LevelSelect')).pack()
         tk.Button(self, text='Go to Questions', command=lambda: controller.show_frame('Questions')).pack()
         tk.Button(self, text='Go to Results Screen', command=lambda: controller.show_frame('ResultsScreen')).pack()
