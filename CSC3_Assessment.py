@@ -10,7 +10,7 @@ class root(tk.Tk):
         frame_container.grid_columnconfigure(0,weight=1)
 
         self.frames={}
-        for Frame in (LoginPage, LevelSelect, Questions):
+        for Frame in (LoginPage, LevelSelect, Questions, ResultsScreen):
             page_name = Frame.__name__
             frame = Frame(parent=frame_container,controller=self)
             self.frames[page_name] = frame
