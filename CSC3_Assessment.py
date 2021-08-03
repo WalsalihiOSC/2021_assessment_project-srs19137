@@ -28,13 +28,17 @@ class LoginPage(tk.Frame):
         self.controller= controller
         tk.Label(self, text='Login Label').pack(padx=10,pady=10)
         tk.Button(self, text='Go to Level Select', command=lambda: controller.show_frame('LevelSelect')).pack()
+        tk.Button(self, text='Go to Questions', command=lambda: controller.show_frame('Questions')).pack()
+        tk.Button(self, text='Go to Results Screen', command=lambda: controller.show_frame('ResultsScreen')).pack()
 
 class LevelSelect(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self,parent)
         self.controller = controller
         tk.Label(self, text='Level Select').pack(padx=10,pady=10)
+        tk.Button(self, text='Go to Login', command=lambda: controller.show_frame('LoginPage')).pack()
         tk.Button(self, text='Go to Questions', command=lambda: controller.show_frame('Questions')).pack()
+        tk.Button(self, text='Go to Results Screen', command=lambda: controller.show_frame('ResultsScreen')).pack()
 
 class Questions(tk.Frame):
     def __init__(self, parent, controller):
@@ -42,6 +46,18 @@ class Questions(tk.Frame):
         self.controller = controller
         tk.Label(self, text='Questions').pack(padx=10,pady=10)
         tk.Button(self, text='Go to Login', command=lambda: controller.show_frame('LoginPage')).pack()
+        tk.Button(self, text='Go to Level Select', command=lambda: controller.show_frame('LevelSelect')).pack()
+        tk.Button(self, text='Go to Results Screen', command=lambda: controller.show_frame('ResultsScreen')).pack()
+
+class ResultsScreen(tk.Frame):
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+        self.controller = controller
+        tk.Label(self, text='Results').pack(padx=10,pady=10)
+        tk.Button(self, text='Go to Login', command=lambda: controller.show_frame('LoginPage')).pack()
+        tk.Button(self, text='Go to Level Select', command=lambda: controller.show_frame('LevelSelect')).pack()
+        tk.Button(self, text='Go to Questions', command=lambda: controller.show_frame('Questions')).pack()
+
 
 root = root()
 root.mainloop()
