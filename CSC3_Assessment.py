@@ -12,11 +12,11 @@ class User:
         try:
             plevel = int(plevel)
             if plevel < 1:
-                print('Error less than 1')
+                return('Error less than 1')
             elif plevel == 1:
-                print('Questions between 1 and 2')
+                return('Questions between 1 and 2')
             elif plevel == 2:
-                print('Questions between 1- and 100')
+                return('Questions between 1- and 100')
         except:
             print('Error: Not an Integer')
 
@@ -62,7 +62,6 @@ class root(tk.Tk):
         first_name=self.fnameEntry.get()
         age=self.ageEntry.get()
         self.player = User(first_name, age)
-        #self.LoginPage.Destroy()
         self.LevelSelect()
 
     def LevelSelect(self):
@@ -77,7 +76,9 @@ class root(tk.Tk):
 
     def nextq(self):
         levels = self.level.get()
-        self.LoginPage.player.checklevel(levels)
+        errormessage = self.player.checklevel(levels)
+        tk.Message(self.LevelSelect, text=errormessage).pack()
+
 
 
 class Questions(tk.Frame):
