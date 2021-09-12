@@ -63,6 +63,7 @@ class root(tk.Tk):
         age=self.ageEntry.get()
         self.player = User(first_name, age)
         self.LevelSelect()
+        self.LoginPage.forget()
 
     def LevelSelect(self):
         self.LevelSelect = tk.Frame(self.frame_container)
@@ -79,25 +80,21 @@ class root(tk.Tk):
         errormessage = self.player.checklevel(levels)
         tk.Message(self.LevelSelect, text=errormessage).pack()
 
+    def Questions(self):
+        self.Questions = tk.Frame(self.frame_container)
+        self.Questions.pack()
+        tk.Label(self.Questions, text='Questions').pack(padx=10,pady=10)
+        tk.Button(self.Questions, text='Go to Login', command=lambda: self.LoginPage()).pack()
+        tk.Button(self.Questions, text='Go to Level Select', command=lambda: self.LevelSelect()).pack()
+        tk.Button(self.Questions, text='Go to Results Screen', command=lambda: self.ResultsScreen()).pack()
 
-
-class Questions(tk.Frame):
-    def __init__(self, parent, controller):
-        tk.Frame.__init__(self,parent)
-        self.controller = controller
-        tk.Label(self, text='Questions').pack(padx=10,pady=10)
-        tk.Button(self, text='Go to Login', command=lambda: controller.show_frame('LoginPage')).pack()
-        tk.Button(self, text='Go to Level Select', command=lambda: controller.show_frame('LevelSelect')).pack()
-        tk.Button(self, text='Go to Results Screen', command=lambda: controller.show_frame('ResultsScreen')).pack()
-
-class ResultsScreen(tk.Frame):
-    def __init__(self, parent, controller):
-        tk.Frame.__init__(self, parent)
-        self.controller = controller
-        tk.Label(self, text='Results').pack(padx=10,pady=10)
-        tk.Button(self, text='Go to Login', command=lambda: controller.show_frame('LoginPage')).pack()
-        tk.Button(self, text='Go to Level Select', command=lambda: controller.show_frame('LevelSelect')).pack()
-        tk.Button(self, text='Go to Questions', command=lambda: controller.show_frame('Questions')).pack()
+    def ResultsScreen(self):
+        self.ResultsScreen = tk.Frame(self.frame_container)
+        self.ResultsScreen.pack()
+        tk.Label(self.ResultsScreen, text='Results').pack(padx=10,pady=10)
+        tk.Button(self.ResultsScreen, text='Go to Login', command=lambda: self.LoginPage()).pack()
+        tk.Button(self.ResultsScreen, text='Go to Level Select', command=lambda: self.LevelSelect()).pack()
+        tk.Button(self.ResultsScreen, text='Go to Questions', command=lambda: self.Questions()).pack()
 
 
 root = root()
