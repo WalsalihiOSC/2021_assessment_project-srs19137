@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox
 import math
 
 class User:
@@ -84,9 +85,12 @@ class root(tk.Tk):
         self.Questions = tk.Frame(self.frame_container)
         self.Questions.pack()
         tk.Label(self.Questions, text='Questions').pack(padx=10,pady=10)
-        tk.Button(self.Questions, text='Go to Login', command=lambda: self.LoginPage()).pack()
-        tk.Button(self.Questions, text='Go to Level Select', command=lambda: self.LevelSelect()).pack()
-        tk.Button(self.Questions, text='Go to Results Screen', command=lambda: self.ResultsScreen()).pack()
+        #tk.Button(self.Questions, text='Go to Login', command=lambda: self.LoginPage()).pack()
+        #tk.Button(self.Questions, text='Go to Level Select', command=lambda: self.LevelSelect()).pack()
+        tk.Button(self.Questions, text='Go to Results Screen', command=lambda: self.nextr()).pack()
+    
+    def nextr(self):
+        
 
     def ResultsScreen(self):
         self.ResultsScreen = tk.Frame(self.frame_container)
