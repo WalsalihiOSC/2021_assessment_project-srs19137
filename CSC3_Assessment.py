@@ -81,11 +81,12 @@ class root(tk.Tk):
         #tk.Button(self.LevelSelect, text='Go to Results Screen', command=lambda: controller.show_frame('ResultsScreen')).pack()
 
     def nextq(self):
-        levels = self.level.get()
-        errormessage = self.player.checklevel(levels)
-        tk.Message(self.LevelSelect, text=errormessage).pack()
-        self.Questions()
-        self.LevelSelect.forget()
+        self.player.checklevel(self.level.get(), True)
+        if self.player.verify == False:
+            pass
+        else:
+            self.Questions()
+            self.LevelSelect.forget()
 
     def Questions(self):
         self.Questions = tk.Frame(self.frame_container)
