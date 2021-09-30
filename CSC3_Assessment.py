@@ -83,7 +83,7 @@ class root(tk.Tk):
     def nextq(self):
         self.player.checklevel(self.level.get(), True)
         if self.player.verify == False:
-            pass
+            tk.messagebox.showwarning(title='ERROR!', message=self.player.errormessage)
         else:
             self.Questions()
             self.LevelSelect.forget()
