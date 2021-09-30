@@ -9,17 +9,21 @@ class User:
         print(f'name from login: {first_name}')
         print(f'age from login: {age}')
 
-    def checklevel(self, plevel):
+    def checklevel(self, plevel, verify):
+        self.verify = verify
+        self.verify = True
         try:
             plevel = int(plevel)
-            if plevel < 1:
-                return('Error less than 1')
             elif plevel == 1:
                 return('Questions between 1 and 2')
             elif plevel == 2:
                 return('Questions between 1- and 100')
         except:
-            print('Error: Not an Integer')
+            self.errormessage = 'Error: Not an Integer'
+            self.verify = False
+        else:
+            self.errormessage = 'Error: Integer outside given range'
+            self.verify = False
 
 
 class root(tk.Tk):
