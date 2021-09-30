@@ -27,8 +27,8 @@ class root(tk.Tk):
         tk.Tk.__init__(self)
         self.frame_container = tk.Frame(self)
         self.frame_container.pack(side='top',fill='both',expand=True)
-        self.frame_container.grid_rowconfigure(0,weight=1)
-        self.frame_container.grid_columnconfigure(0,weight=1)
+        #self.frame_container.grid_rowconfigure(0,weight=1)
+        #self.frame_container.grid_columnconfigure(0,weight=1)
         self.LoginPage()
 
         '''self.frames={}
@@ -80,6 +80,8 @@ class root(tk.Tk):
         levels = self.level.get()
         errormessage = self.player.checklevel(levels)
         tk.Message(self.LevelSelect, text=errormessage).pack()
+        self.Questions()
+        self.LevelSelect.forget()
 
     def Questions(self):
         self.Questions = tk.Frame(self.frame_container)
@@ -97,8 +99,14 @@ class root(tk.Tk):
         self.ResultsScreen.pack()
         tk.Label(self.ResultsScreen, text='Results').pack(padx=10,pady=10)
         tk.Button(self.ResultsScreen, text='Go to Login', command=lambda: self.LoginPage()).pack()
-        tk.Button(self.ResultsScreen, text='Go to Level Select', command=lambda: self.LevelSelect()).pack()
-        tk.Button(self.ResultsScreen, text='Go to Questions', command=lambda: self.Questions()).pack()
+        #tk.Button(self.ResultsScreen, text='Go to Level Select', command=lambda: self.LevelSelect()).pack()
+        #tk.Button(self.ResultsScreen, text='Go to Questions', command=lambda: self.Questions()).pack()
+    
+    def restart(self):
+        self.LoginPage()
+        self.ResultsScreen.forget()
+
+
 
 
 root = root()
