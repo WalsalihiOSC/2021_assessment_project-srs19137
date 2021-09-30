@@ -92,7 +92,8 @@ class root(tk.Tk):
         tk.Button(self.Questions, text='Go to Results Screen', command=lambda: self.nextr()).pack()
     
     def nextr(self):
-        pass
+        self.ResultsScreen()
+        self.Questions.forget()
 
     def ResultsScreen(self):
         self.ResultsScreen = tk.Frame(self.frame_container)
