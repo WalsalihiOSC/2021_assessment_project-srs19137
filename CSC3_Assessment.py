@@ -9,6 +9,13 @@ class User:
         print(f'name from login: {first_name}')
         print(f'age from login: {age}')
 
+    def file_write():
+        user_file = open("user_results_file.text", "a")
+        user_file.write("Begin User File\n")
+        user_file.write(f'User First Name: {User.first_name} \nUser Age: {User.age} \n')
+        user_file.write("End User File\n")
+        user_file.close()
+
     def checklevel(self, plevel, verify):
         self.verify = verify
         self.verify = True
