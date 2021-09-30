@@ -14,7 +14,7 @@ class User:
         self.verify = True
         try:
             plevel = int(plevel)
-            elif plevel == 1:
+            if plevel == 1:
                 return('Questions between 1 and 2')
             elif plevel == 2:
                 return('Questions between 1- and 100')
