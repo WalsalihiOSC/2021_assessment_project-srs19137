@@ -40,10 +40,10 @@ class root(tk.Tk):
         
         self.show_frame('LoginPage')'''
 
-    def show_frame(self, page_name):
+    '''def show_frame(self, page_name):
     
             frame = page_name
-            frame.tkraise()
+            frame.tkraise()'''
 
     def LoginPage(self):
         self.LoginPage = tk.Frame(self.frame_container)
