@@ -58,8 +58,8 @@ class root(tk.Tk):
         self.LevelSelectFrame = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
         self.LevelSelectFrame.grid()
         tk.Label(self.LevelSelectFrame, text='Level Select').grid(padx=10,pady=10)
-        self.level=tk.Entry(self.LevelSelectFrame)
-        self.level.grid()
+        self.amount=tk.Entry(self.LevelSelectFrame)
+        self.amount.grid()
         self.CHOICES = ['Addition', 'Subtraction', 'Multiplication', 'Division']
         self.chosen_option = StringVar(self.LevelSelectFrame)
         self.chosen_option.set('Choose')
