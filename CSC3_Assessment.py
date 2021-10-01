@@ -155,6 +155,7 @@ class root(tk.Tk):
                 self.finished_window()
             else:
                 self.Questions()
+                self.answerEntry.insert(0, 'CORRECT')
             print(self.player.current_score)
         elif answervar != str(self.correct_answer()):
             self.QuestionsFrame.destroy()
