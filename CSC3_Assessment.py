@@ -34,20 +34,20 @@ class root(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
         self.frame_container = tk.Frame(self)
-        self.frame_container.pack(side='top',fill='both',expand=True)
+        self.frame_container.grid(side='top',fill='both',expand=True)
         self.LoginPage()
 
     def LoginPage(self):
         self.LoginPage = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
-        self.LoginPage.pack()
-        tk.Label(self.LoginPage, text='Login Screen').pack(padx=10,pady=10)
-        tk.Label(self.LoginPage, text='First Name:').pack()
+        self.LoginPage.grid()
+        tk.Label(self.LoginPage, text='Login Screen').grid(padx=10,pady=10)
+        tk.Label(self.LoginPage, text='First Name:').grid()
         self.fnameEntry = tk.Entry(self.LoginPage)
-        self.fnameEntry.pack()
-        tk.Label(self.LoginPage, text='Age:').pack()
+        self.fnameEntry.grid()
+        tk.Label(self.LoginPage, text='Age:').grid()
         self.ageEntry = tk.Entry(self.LoginPage)
-        self.ageEntry.pack()
-        tk.Button(self.LoginPage, text='Go to Level Select', command=lambda: self.nextw()).pack()
+        self.ageEntry.grid()
+        tk.Button(self.LoginPage, text='Go to Level Select', command=lambda: self.nextw()).grid()
 
     def nextw(self):
         first_name=self.fnameEntry.get()
@@ -58,11 +58,11 @@ class root(tk.Tk):
 
     def LevelSelect(self):
         self.LevelSelect = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
-        self.LevelSelect.pack()
-        tk.Label(self.LevelSelect, text='Level Select').pack(padx=10,pady=10)
+        self.LevelSelect.grid()
+        tk.Label(self.LevelSelect, text='Level Select').grid(padx=10,pady=10)
         self.level=tk.Entry(self.LevelSelect)
-        self.level.pack()
-        tk.Button(self.LevelSelect, text='Go to Questions', command=lambda: self.nextq()).pack()
+        self.level.grid()
+        tk.Button(self.LevelSelect, text='Go to Questions', command=lambda: self.nextq()).grid()
 
 
     def nextq(self):
@@ -75,9 +75,9 @@ class root(tk.Tk):
 
     def Questions(self):
         self.Questions = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
-        self.Questions.pack()
-        tk.Label(self.Questions, text='Questions').pack(padx=10,pady=10)
-        tk.Button(self.Questions, text='Go to Results Screen', command=lambda: self.nextr()).pack()
+        self.Questions.grid()
+        tk.Label(self.Questions, text='Questions').grid(padx=10,pady=10)
+        tk.Button(self.Questions, text='Go to Results Screen', command=lambda: self.nextr()).grid()
     
     def nextr(self):
         self.ResultsScreen()
@@ -85,9 +85,9 @@ class root(tk.Tk):
 
     def ResultsScreen(self):
         self.ResultsScreen = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
-        self.ResultsScreen.pack()
-        tk.Label(self.ResultsScreen, text='Results').pack(padx=10,pady=10)
-        tk.Button(self.ResultsScreen, text='Go to Login', command=lambda: self.LoginPage()).pack()
+        self.ResultsScreen.grid()
+        tk.Label(self.ResultsScreen, text='Results').grid(padx=10,pady=10)
+        tk.Button(self.ResultsScreen, text='Go to Login', command=lambda: self.LoginPage()).grid()
     
     def restart(self):
         self.LoginPage()
