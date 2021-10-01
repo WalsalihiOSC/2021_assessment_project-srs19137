@@ -106,21 +106,15 @@ class root(tk.Tk):
         if self.player.mathmethod == 'Addition':
             self.operator = '+'
         elif self.player.mathmethod == 'Subtraction':
-            self.operator = '-'
-        elif self.player.mathmethod == 'Multiplication':
-            self.operator = 'x'
-        else:
-            if self.num1 == 0:
-                self.num1 +=1
-            elif self.num2 == 0:
-                self.num2 +=1
-            
             if self.num1 < self.num2:
                 numPH = self.num2
                 self.num2 = self.num1
                 self.num1 = numPH
+            self.operator = '-'
+        else:
+            self.operator = 'x'
+
             
-            self.operator = '÷'
     
     def nextr(self):
         self.ResultsScreen()
