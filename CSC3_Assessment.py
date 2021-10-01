@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import StringVar, messagebox
 import random
-from tkinter.constants import DISABLED, N, W
+from tkinter.constants import DISABLED, N, W, RIDGE
 
 class User:
     def __init__(self, first_name, age, mathmethod, current_score):
@@ -43,11 +43,11 @@ class root(tk.Tk):
         self.LoginPageFrame = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
         self.LoginPageFrame.grid()
         self.LoginPageFrame.grid_propagate(False)
-        tk.Label(self.LoginPageFrame, text='Login Screen').grid(row=0, column=0, sticky='NSEW', padx=50, pady=10, columnspan=2)
-        tk.Label(self.LoginPageFrame, text='First Name:').grid(row=1, column=0, sticky=W, padx=10)
+        tk.Label(self.LoginPageFrame, text='Login Screen', relief=RIDGE).grid(row=0, column=0, sticky='NSEW', padx=50, pady=10, columnspan=2)
+        tk.Label(self.LoginPageFrame, text='First Name:', relief=RIDGE).grid(row=1, column=0, sticky=W, padx=10)
         self.fnameEntry = tk.Entry(self.LoginPageFrame)
         self.fnameEntry.grid(row=1, column=1)
-        tk.Label(self.LoginPageFrame, text='Age:').grid(row=2,column=0, sticky=W, padx=10)
+        tk.Label(self.LoginPageFrame, text='Age:', relief=RIDGE).grid(row=2,column=0, sticky=W, padx=10)
         self.ageEntry = tk.Entry(self.LoginPageFrame)
         self.ageEntry.grid(row=2,column=1, sticky='NS')
         tk.Button(self.LoginPageFrame, text='Go to Level Select', command=lambda: self.nextl()).grid(row=3, column=2)
@@ -73,14 +73,14 @@ class root(tk.Tk):
         self.LevelSelectFrame = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
         self.LevelSelectFrame.grid()
         self.LevelSelectFrame.grid_propagate(False)
-        tk.Label(self.LevelSelectFrame, text='Level Select').grid(row=0, column=0, sticky='NSEW', padx=50, pady=10, columnspan=2)
-        tk.Label(self.LevelSelectFrame, text='Number of questions: ').grid(row=1, column=0, sticky=W, padx=10)
+        tk.Label(self.LevelSelectFrame, text='Level Select', relief=RIDGE).grid(row=0, column=0, sticky='NSEW', padx=50, pady=10, columnspan=2)
+        tk.Label(self.LevelSelectFrame, text='Number of questions: ', relief=RIDGE).grid(row=1, column=0, sticky=W, padx=10)
         self.amount=tk.Entry(self.LevelSelectFrame)
         self.amount.grid(row=1, column=1)
         self.CHOICES = ['Addition', 'Subtraction', 'Multiplication']
         self.chosen_option = StringVar(self.LevelSelectFrame)
         self.chosen_option.set('Choose')
-        tk.Label(self.LevelSelectFrame, text='Type of questions').grid(row=2, column=0, sticky=W)
+        tk.Label(self.LevelSelectFrame, text='Type of questions', relief=RIDGE).grid(row=2, column=0, sticky=W)
         self.dropdown = tk.OptionMenu(self.LevelSelectFrame, self.chosen_option, *self.CHOICES)
         self.dropdown.grid(row=2, column=1)        
         tk.Button(self.LevelSelectFrame, text='Go to Questions', command=lambda: self.nextq()).grid(row=3, column=1)
