@@ -84,7 +84,10 @@ class root(tk.Tk):
 
     def nextq(self):
         self.player.checklevel(self.level.get(), True)
-
+        self.q_number = int(self.amount.get())
+        if self.player.verify == True:
+            if self.chosen_option.get() == 'Choose':
+                tk.messagebox.showwarning('Method Select Error', 'Choose a question type using the dropdown menu')        
 
     def Questions(self):
         self.QuestionsFrame = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
