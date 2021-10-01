@@ -39,7 +39,7 @@ class root(tk.Tk):
     def LoginPage(self):
         self.LoginPageFrame = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
         self.LoginPageFrame.grid()
-        tk.Label(self.LoginPageFrame, text='Login Screen').grid(padx=10,pady=10)
+        tk.Label(self.LoginPageFrame, text='Login Screen').grid()
         tk.Label(self.LoginPageFrame, text='First Name:').grid()
         self.fnameEntry = tk.Entry(self.LoginPageFrame)
         self.fnameEntry.grid()
@@ -56,7 +56,7 @@ class root(tk.Tk):
     def LevelSelect(self):
         self.LevelSelectFrame = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
         self.LevelSelectFrame.grid()
-        tk.Label(self.LevelSelectFrame, text='Level Select').grid(padx=10,pady=10)
+        tk.Label(self.LevelSelectFrame, text='Level Select').grid()
         self.amount=tk.Entry(self.LevelSelectFrame)
         self.amount.grid()
         self.CHOICES = ['Addition', 'Subtraction', 'Multiplication', 'Division']
@@ -78,7 +78,7 @@ class root(tk.Tk):
     def Questions(self):
         self.QuestionsFrame = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
         self.QuestionsFrame.grid()
-        tk.Label(self.QuestionsFrame, text='Questions').grid(padx=10,pady=10)
+        tk.Label(self.QuestionsFrame, text='Questions').grid()
         tk.Button(self.QuestionsFrame, text='Go to Results Screen', command=lambda: self.nextr()).grid()
     
     def nextr(self):
@@ -89,7 +89,7 @@ class root(tk.Tk):
         self.ResultsScreenFrame = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
         self.ResultsScreenFrame.grid()
         self.ResultsScreenFrame
-        tk.Label(self.ResultsScreenFrame, text='Results').grid(padx=10,pady=10)
+        tk.Label(self.ResultsScreenFrame, text='Results').grid()
         tk.Button(self.ResultsScreenFrame, text='Go to Login', command=lambda: self.LoginPage()).grid()
     
     def restart(self):
