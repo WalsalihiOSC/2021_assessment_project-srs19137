@@ -60,6 +60,11 @@ class root(tk.Tk):
         tk.Label(self.LevelSelectFrame, text='Level Select').grid(padx=10,pady=10)
         self.level=tk.Entry(self.LevelSelectFrame)
         self.level.grid()
+        self.CHOICES = ['Addition', 'Subtraction', 'Multiplication', 'Division']
+        self.chosen_option = StringVar(self.LevelSelectFrame)
+        self.chosen_option.set('Choose')
+        self.dropdown = tk.OptionMenu(self.LevelSelectFrame, self.chosen_option, *self.CHOICES)
+        self.dropdown.grid()        
         tk.Button(self.LevelSelectFrame, text='Go to Questions', command=lambda: self.nextq()).grid()
 
 
