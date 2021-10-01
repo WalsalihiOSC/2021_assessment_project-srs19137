@@ -49,9 +49,13 @@ class root(tk.Tk):
         tk.Button(self.LoginPageFrame, text='Go to Level Select', command=lambda: self.nextl()).grid()
 
     def nextl(self):
-        self.player = User(self.fnameEntry.get(), self.ageEntry.get(), True)
-        self.LevelSelect()
-        self.LoginPageFrame.destroy()
+        if len(self.fnameEntry.get()) == 0:
+            tk.messagebox.showwarning('Name Error', 'Please enter your name')
+        elif len(self.ageEntry.get()) == 0:
+            tk.messagebox.showwarning('Age Error', 'Please enter your age')
+        #self.player = User(self.fnameEntry.get(), self.ageEntry.get(), True)
+        #self.LevelSelect()
+        #self.LoginPageFrame.destroy()
 
     def LevelSelect(self):
         self.LevelSelectFrame = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
