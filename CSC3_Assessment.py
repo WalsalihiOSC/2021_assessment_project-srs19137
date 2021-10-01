@@ -3,11 +3,10 @@ from tkinter import messagebox
 import math
 
 class User:
-    def __init__(self, first_name, age):
-        self.first_name=first_name  
-        self.age=age
-        print(f'name from login: {first_name}')
-        print(f'age from login: {age}')
+    def __init__(self, first_name, age, mathmethod):
+        self.first_name = first_name  
+        self.age = age
+        self.mathmethod = mathmethod
 
     def file_write():
         user_file = open("user_results_file.text", "a")
@@ -50,7 +49,7 @@ class root(tk.Tk):
         tk.Button(self.LoginPageFrame, text='Go to Level Select', command=lambda: self.nextl()).grid()
 
     def nextl(self):
-        self.player = User(self.fnameEntry.get(), self.ageEntry.get())
+        self.player = User(self.fnameEntry.get(), self.ageEntry.get(), True)
         self.LevelSelect()
         self.LoginPageFrame.destroy()
 
