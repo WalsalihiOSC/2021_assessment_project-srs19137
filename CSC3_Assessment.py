@@ -62,7 +62,7 @@ class root(tk.Tk):
                     tk.messagebox.showwarning('Age Entry Error', 'Are you sure you typed your age correctly?')
                 else:
                     self.player = User(self.fnameEntry.get(), self.ageEntry.get(), True)
-                    self.LoginPage.destroy()
+                    self.LoginPageFrame.destroy()
                     self.LevelSelect()
             except (TypeError, ValueError):
                 tk.messagebox.showwarning('Age Entry Error', 'Please enter your age in numbers')
@@ -84,7 +84,7 @@ class root(tk.Tk):
         tk.Button(self.LevelSelectFrame, text='Go to Questions', command=lambda: self.nextq()).grid()
 
     def nextq(self):
-        self.player.checklevel(self.level.get(), True)
+        self.player.check_question_amount(self.amount.get(), True)
         self.q_number = int(self.amount.get())
         if self.player.verify == True:
             if self.chosen_option.get() == 'Choose':
@@ -92,7 +92,7 @@ class root(tk.Tk):
             else:
                 self.player = User(self.player.first_name, self.player.age, self.chosen_option.get())
                 self.Questions()
-                self.LevelSelect.destroy()
+                self.LevelSelectFrame.destroy()
         else:
             tk.messagebox.showwarning(None, self.player.errormessage)        
 
@@ -100,6 +100,8 @@ class root(tk.Tk):
         self.QuestionsFrame = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
         self.QuestionsFrame.grid()
         self.QuestionsFrame.grid_propagate(False)
+        self.question_create()
+        self.question_window()
 
     def question_window(self):
         tk.Label(self.QuestionsFrame, text='Questions').grid()
