@@ -47,9 +47,9 @@ class root(tk.Tk):
         tk.Label(self.LoginPageFrame, text='Age:').grid()
         self.ageEntry = tk.Entry(self.LoginPageFrame)
         self.ageEntry.grid()
-        tk.Button(self.LoginPageFrame, text='Go to Level Select', command=lambda: self.nextw()).grid()
+        tk.Button(self.LoginPageFrame, text='Go to Level Select', command=lambda: self.nextl()).grid()
 
-    def nextw(self):
+    def nextl(self):
         first_name=self.fnameEntry.get()
         age=self.ageEntry.get()
         self.player = User(first_name, age)
