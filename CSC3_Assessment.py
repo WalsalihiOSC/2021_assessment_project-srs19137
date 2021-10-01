@@ -38,7 +38,7 @@ class root(tk.Tk):
         self.LoginPage()
 
     def LoginPage(self):
-        self.LoginPage = tk.Frame(self.frame_container)
+        self.LoginPage = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
         self.LoginPage.pack()
         tk.Label(self.LoginPage, text='Login Screen').pack(padx=10,pady=10)
         tk.Label(self.LoginPage, text='First Name:').pack()
@@ -57,7 +57,7 @@ class root(tk.Tk):
         self.LoginPage.forget()
 
     def LevelSelect(self):
-        self.LevelSelect = tk.Frame(self.frame_container)
+        self.LevelSelect = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
         self.LevelSelect.pack()
         tk.Label(self.LevelSelect, text='Level Select').pack(padx=10,pady=10)
         self.level=tk.Entry(self.LevelSelect)
@@ -74,7 +74,7 @@ class root(tk.Tk):
             self.LevelSelect.forget()
 
     def Questions(self):
-        self.Questions = tk.Frame(self.frame_container)
+        self.Questions = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
         self.Questions.pack()
         tk.Label(self.Questions, text='Questions').pack(padx=10,pady=10)
         tk.Button(self.Questions, text='Go to Results Screen', command=lambda: self.nextr()).pack()
@@ -84,7 +84,7 @@ class root(tk.Tk):
         self.Questions.forget()
 
     def ResultsScreen(self):
-        self.ResultsScreen = tk.Frame(self.frame_container)
+        self.ResultsScreen = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
         self.ResultsScreen.pack()
         tk.Label(self.ResultsScreen, text='Results').pack(padx=10,pady=10)
         tk.Button(self.ResultsScreen, text='Go to Login', command=lambda: self.LoginPage()).pack()
@@ -95,4 +95,6 @@ class root(tk.Tk):
 
 
 root = root()
+root.title("Maths-sistant")
+root.geometry("380x140")
 root.mainloop()
