@@ -169,11 +169,11 @@ class root(tk.Tk):
         self.ResultsScreenFrame = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
         self.ResultsScreenFrame.grid()
         self.ResultsScreenFrame.grid_propagate(False)
-        tk.Label(self.ResultsScreenFrame, text='Results').grid()
-        tk.Label(self.ResultsScreen, text=f'{self.player.current_score} / {self.q_number} Questions Answered Correctly!').grid()
-        tk.Button(self.ResultsScreenFrame, text='Go to Login', command=lambda: self.LoginPage()).grid()
-        tk.Button(self.ResultsScreenFrame, text='Save your score', command=lambda: self.player.file_write()).grid()
-        tk.Button(self.ResultsScreenFrame, text='Quit program', command=lambda: quit()).grid()
+        tk.Label(self.ResultsScreenFrame, text='Results', relief=RIDGE).grid(row=0, column=0, sticky='NSEW', padx=50, pady=10, columnspan=2)
+        tk.Label(self.ResultsScreen, text=f'{self.player.current_score} / {self.q_number} Questions Answered Correctly!', relief=RIDGE).grid(row=1, column=0, sticky='NSEW', padx=50, pady=10, columnspan=2)
+        tk.Button(self.ResultsScreenFrame, text='Go to Login', command=lambda: self.LoginPage()).grid(row=2, column=0)
+        tk.Button(self.ResultsScreenFrame, text='Save your score', command=lambda: self.player.file_write()).grid(row=2, column=1)
+        tk.Button(self.ResultsScreenFrame, text='Quit program', command=lambda: quit()).grid(row=2, column=2)
     
     def restart(self):
         self.LoginPage()
