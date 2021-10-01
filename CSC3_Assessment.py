@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import StringVar, messagebox
 import random
-from tkinter.constants import DISABLED
+from tkinter.constants import DISABLED, N, W
 
 class User:
     def __init__(self, first_name, age, mathmethod, current_score):
