@@ -87,7 +87,13 @@ class root(tk.Tk):
         self.q_number = int(self.amount.get())
         if self.player.verify == True:
             if self.chosen_option.get() == 'Choose':
-                tk.messagebox.showwarning('Method Select Error', 'Choose a question type using the dropdown menu')        
+                tk.messagebox.showwarning('Method Select Error', 'Choose a question type using the dropdown menu')
+            else:
+                self.player = User(self.player.first_name, self.player.age, self.chosen_option.get())
+                self.Questions()
+                self.LevelSelect.destroy()
+        else:
+            tk.messagebox.showwarning(None, self.player.errormessage)        
 
     def Questions(self):
         self.QuestionsFrame = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
