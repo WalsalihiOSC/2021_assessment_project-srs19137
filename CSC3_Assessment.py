@@ -43,14 +43,14 @@ class root(tk.Tk):
         self.LoginPageFrame = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
         self.LoginPageFrame.grid()
         self.LoginPageFrame.grid_propagate(False)
-        tk.Label(self.LoginPageFrame, text='Login Screen').grid()
-        tk.Label(self.LoginPageFrame, text='First Name:').grid()
+        tk.Label(self.LoginPageFrame, text='Login Screen').grid(row=0, column=0, sticky='NSEW', padx=50, pady=10, columnspan=2)
+        tk.Label(self.LoginPageFrame, text='First Name:').grid(row=1, column=0, sticky=W, padx=10)
         self.fnameEntry = tk.Entry(self.LoginPageFrame)
-        self.fnameEntry.grid()
-        tk.Label(self.LoginPageFrame, text='Age:').grid()
+        self.fnameEntry.grid(row=1, column=1)
+        tk.Label(self.LoginPageFrame, text='Age:').grid(row=2,column=0, sticky=W, padx=10)
         self.ageEntry = tk.Entry(self.LoginPageFrame)
-        self.ageEntry.grid()
-        tk.Button(self.LoginPageFrame, text='Go to Level Select', command=lambda: self.nextl()).grid()
+        self.ageEntry.grid(row=2,column=1, sticky='NS')
+        tk.Button(self.LoginPageFrame, text='Go to Level Select', command=lambda: self.nextl()).grid(row=3, column=2)
 
     def nextl(self):
         if len(self.fnameEntry.get()) == 0:
