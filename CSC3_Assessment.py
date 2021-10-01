@@ -114,6 +114,19 @@ class root(tk.Tk):
         else:
             self.operator = 'x'
 
+    def answer_check(self, answervar):        
+        if answervar == str(self.correct_answer()):
+            self.player.current_score += 1
+            self.QuestionsFrame.destroy()
+            if self.player.current_score >= self.q_number:
+                self.finished_window()
+            else:
+                self.Questions()
+            print(self.player.current_score)
+        elif answervar != str(self.correct_answer()):
+            self.QuestionsFrame.destroy()
+            self.Questions()
+            self.answerEntry.insert(0,'INCORRECT')
             
     
     def nextr(self):
