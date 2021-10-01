@@ -99,8 +99,7 @@ class root(tk.Tk):
         self.QuestionsFrame = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
         self.QuestionsFrame.grid()
         self.QuestionsFrame.grid_propagate(False)
-        tk.Label(self.QuestionsFrame, text='Questions').grid()
-        tk.Button(self.QuestionsFrame, text='Go to Results Screen', command=lambda: self.nextr()).grid()
+
     
     def nextr(self):
         self.ResultsScreen()
