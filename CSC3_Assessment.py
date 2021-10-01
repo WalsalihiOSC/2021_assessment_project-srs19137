@@ -101,8 +101,8 @@ class root(tk.Tk):
         self.QuestionsFrame.grid_propagate(False)
 
     def question_create(self):
-        self.num1 = (random.randint(0,2) * 10) + random.randint(0,9)
-        self.num2 = (random.randint(0,2) * 10) + random.randint(0,9)
+        self.num1 = random.randint(0,30)
+        self.num2 = random.randint(0,30)
         if self.player.mathmethod == 'Addition':
             self.operator = '+'
         elif self.player.mathmethod == 'Subtraction':
