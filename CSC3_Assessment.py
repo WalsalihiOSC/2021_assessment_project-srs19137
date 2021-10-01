@@ -34,35 +34,35 @@ class root(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
         self.frame_container = tk.Frame(self)
-        self.frame_container.grid(side='top',fill='both',expand=True)
+        self.frame_container.grid()
         self.LoginPage()
 
     def LoginPage(self):
-        self.LoginPage = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
-        self.LoginPage.grid()
-        tk.Label(self.LoginPage, text='Login Screen').grid(padx=10,pady=10)
-        tk.Label(self.LoginPage, text='First Name:').grid()
-        self.fnameEntry = tk.Entry(self.LoginPage)
+        self.LoginPageFrame = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
+        self.LoginPageFrame.grid()
+        tk.Label(self.LoginPageFrame, text='Login Screen').grid(padx=10,pady=10)
+        tk.Label(self.LoginPageFrame, text='First Name:').grid()
+        self.fnameEntry = tk.Entry(self.LoginPageFrame)
         self.fnameEntry.grid()
-        tk.Label(self.LoginPage, text='Age:').grid()
-        self.ageEntry = tk.Entry(self.LoginPage)
+        tk.Label(self.LoginPageFrame, text='Age:').grid()
+        self.ageEntry = tk.Entry(self.LoginPageFrame)
         self.ageEntry.grid()
-        tk.Button(self.LoginPage, text='Go to Level Select', command=lambda: self.nextw()).grid()
+        tk.Button(self.LoginPageFrame, text='Go to Level Select', command=lambda: self.nextw()).grid()
 
     def nextw(self):
         first_name=self.fnameEntry.get()
         age=self.ageEntry.get()
         self.player = User(first_name, age)
         self.LevelSelect()
-        self.LoginPage.forget()
+        self.LoginPageFrame.forget()
 
     def LevelSelect(self):
-        self.LevelSelect = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
-        self.LevelSelect.grid()
-        tk.Label(self.LevelSelect, text='Level Select').grid(padx=10,pady=10)
-        self.level=tk.Entry(self.LevelSelect)
+        self.LevelSelectFrame = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
+        self.LevelSelectFrame.grid()
+        tk.Label(self.LevelSelectFrame, text='Level Select').grid(padx=10,pady=10)
+        self.level=tk.Entry(self.LevelSelectFrame)
         self.level.grid()
-        tk.Button(self.LevelSelect, text='Go to Questions', command=lambda: self.nextq()).grid()
+        tk.Button(self.LevelSelectFrame, text='Go to Questions', command=lambda: self.nextq()).grid()
 
 
     def nextq(self):
@@ -71,27 +71,28 @@ class root(tk.Tk):
             tk.messagebox.showwarning(title='ERROR!', message=self.player.errormessage)
         else:
             self.Questions()
-            self.LevelSelect.forget()
+            self.LevelSelectFrame.forget()
 
     def Questions(self):
-        self.Questions = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
-        self.Questions.grid()
-        tk.Label(self.Questions, text='Questions').grid(padx=10,pady=10)
-        tk.Button(self.Questions, text='Go to Results Screen', command=lambda: self.nextr()).grid()
+        self.QuestionsFrame = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
+        self.QuestionsFrame.grid()
+        tk.Label(self.QuestionsFrame, text='Questions').grid(padx=10,pady=10)
+        tk.Button(self.QuestionsFrame, text='Go to Results Screen', command=lambda: self.nextr()).grid()
     
     def nextr(self):
         self.ResultsScreen()
-        self.Questions.forget()
+        self.QuestionsFrame.forget()
 
     def ResultsScreen(self):
-        self.ResultsScreen = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
-        self.ResultsScreen.grid()
-        tk.Label(self.ResultsScreen, text='Results').grid(padx=10,pady=10)
-        tk.Button(self.ResultsScreen, text='Go to Login', command=lambda: self.LoginPage()).grid()
+        self.ResultsScreenFrame = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
+        self.ResultsScreenFrame.grid()
+        self.ResultsScreenFrame
+        tk.Label(self.ResultsScreenFrame, text='Results').grid(padx=10,pady=10)
+        tk.Button(self.ResultsScreenFrame, text='Go to Login', command=lambda: self.LoginPage()).grid()
     
     def restart(self):
         self.LoginPage()
-        self.ResultsScreen.forget()
+        self.ResultsScreenFrame.forget()
 
 
 root = root()
