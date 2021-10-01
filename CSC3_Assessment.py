@@ -4,15 +4,17 @@ import random
 from tkinter.constants import DISABLED
 
 class User:
-    def __init__(self, first_name, age, mathmethod):
+    def __init__(self, first_name, age, mathmethod, current_score):
         self.first_name = first_name  
         self.age = age
         self.mathmethod = mathmethod
+        self.current_score = current_score
 
     def file_write():
         user_file = open("user_results_file.text", "a")
         user_file.write("Begin User File\n")
         user_file.write(f'User First Name: {root.player.first_name} \nUser Age: {root.player.age} \nChosen question type: {root.player.mathmethod}\n')
+        user_file.write(f'Correct Questions: {root.player.current_score} / {root.q_number}\n')
         user_file.write("End User File\n")
         user_file.close()
 
@@ -90,7 +92,7 @@ class root(tk.Tk):
             if self.chosen_option.get() == 'Choose':
                 tk.messagebox.showwarning('Method Select Error', 'Choose a question type using the dropdown menu')
             else:
-                self.player = User(self.player.first_name, self.player.age, self.chosen_option.get())
+                self.player = User(self.player.first_name, self.player.age, self.chosen_option.get(), int(0))
                 self.Questions()
                 self.LevelSelectFrame.destroy()
         else:
