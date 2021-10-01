@@ -170,6 +170,7 @@ class root(tk.Tk):
         self.ResultsScreenFrame.grid()
         self.ResultsScreenFrame.grid_propagate(False)
         tk.Label(self.ResultsScreenFrame, text='Results').grid()
+        tk.Label(self.ResultsScreen, text=f'{self.player.current_score} / {self.q_number} Questions Answered Correctly!').grid()
         tk.Button(self.ResultsScreenFrame, text='Go to Login', command=lambda: self.LoginPage()).grid()
         tk.Button(self.ResultsScreenFrame, text='Save your score', command=lambda: self.player.file_write()).grid()
         tk.Button(self.ResultsScreenFrame, text='Quit program', command=lambda: quit()).grid()
