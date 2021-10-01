@@ -121,7 +121,7 @@ class root(tk.Tk):
         tk.Label(self.QuestionsFrame, text='Questions').grid()
         tk.Label(self.QuestionsFrame, text=f'{self.num1} {self.operator} {self.num2}').grid()
         self.answerEntry = tk.Entry(self.QuestionsFrame, state=DISABLED, disabledbackground='#D3D3D3')
-        self.answerEntry.grid(row=1, column=1)
+        self.answerEntry.grid()
         tk.Label(self.QuestionsFrame, text=f'{self.player.current_score} / {self.q_number} questions completed').grid()
         tk.Button(self.QuestionsFrame, text='Continue', command=lambda: self.nextr()).grid() 
 
