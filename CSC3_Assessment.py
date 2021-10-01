@@ -73,17 +73,17 @@ class root(tk.Tk):
         self.LevelSelectFrame = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
         self.LevelSelectFrame.grid()
         self.LevelSelectFrame.grid_propagate(False)
-        tk.Label(self.LevelSelectFrame, text='Level Select').grid()
-        tk.Label(self.LevelSelectFrame, text='Number of questions: ').grid()
+        tk.Label(self.LevelSelectFrame, text='Level Select').grid(row=0, column=0, sticky='NSEW', padx=50, pady=10, columnspan=2)
+        tk.Label(self.LevelSelectFrame, text='Number of questions: ').grid(row=1, column=0, sticky=W, padx=10)
         self.amount=tk.Entry(self.LevelSelectFrame)
-        self.amount.grid()
+        self.amount.grid(row=1, column=1)
         self.CHOICES = ['Addition', 'Subtraction', 'Multiplication']
         self.chosen_option = StringVar(self.LevelSelectFrame)
         self.chosen_option.set('Choose')
-        tk.Label(self.LevelSelectFrame, text='Type of questions').grid()
+        tk.Label(self.LevelSelectFrame, text='Type of questions').grid(row=2, column=0, sticky=W)
         self.dropdown = tk.OptionMenu(self.LevelSelectFrame, self.chosen_option, *self.CHOICES)
-        self.dropdown.grid()        
-        tk.Button(self.LevelSelectFrame, text='Go to Questions', command=lambda: self.nextq()).grid()
+        self.dropdown.grid(row=2, column=1)        
+        tk.Button(self.LevelSelectFrame, text='Go to Questions', command=lambda: self.nextq()).grid(row=3, column=1)
 
     def nextq(self):
         self.player.check_question_amount(self.amount.get(), True)
