@@ -11,7 +11,7 @@ class User:
     def file_write():
         user_file = open("user_results_file.text", "a")
         user_file.write("Begin User File\n")
-        user_file.write(f'User First Name: {User.first_name} \nUser Age: {User.age} \n')
+        user_file.write(f'User First Name: {root.player.first_name} \nUser Age: {root.player.age} \nChosen question type: {root.player.mathmethod}\n')
         user_file.write("End User File\n")
         user_file.close()
 
