@@ -54,7 +54,7 @@ class root(tk.Tk):
         age=self.ageEntry.get()
         self.player = User(first_name, age)
         self.LevelSelect()
-        self.LoginPageFrame.forget()
+        self.LoginPageFrame.destroy()
 
     def LevelSelect(self):
         self.LevelSelectFrame = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
@@ -71,7 +71,7 @@ class root(tk.Tk):
             tk.messagebox.showwarning(title='ERROR!', message=self.player.errormessage)
         else:
             self.Questions()
-            self.LevelSelectFrame.forget()
+            self.LevelSelectFrame.destroy()
 
     def Questions(self):
         self.QuestionsFrame = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
@@ -81,7 +81,7 @@ class root(tk.Tk):
     
     def nextr(self):
         self.ResultsScreen()
-        self.QuestionsFrame.forget()
+        self.QuestionsFrame.destroy()
 
     def ResultsScreen(self):
         self.ResultsScreenFrame = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
@@ -92,7 +92,7 @@ class root(tk.Tk):
     
     def restart(self):
         self.LoginPage()
-        self.ResultsScreenFrame.forget()
+        self.ResultsScreenFrame.destroy()
 
 
 root = root()
