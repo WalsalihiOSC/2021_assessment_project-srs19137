@@ -77,7 +77,7 @@ class root(tk.Tk):
         tk.Label(self.LevelSelectFrame, text='Number of questions: ').grid()
         self.amount=tk.Entry(self.LevelSelectFrame)
         self.amount.grid()
-        self.CHOICES = ['Addition', 'Subtraction', 'Multiplication', 'Division']
+        self.CHOICES = ['Addition', 'Subtraction', 'Multiplication']
         self.chosen_option = StringVar(self.LevelSelectFrame)
         self.chosen_option.set('Choose')
         tk.Label(self.LevelSelectFrame, text='Type of questions').grid()
@@ -138,6 +138,15 @@ class root(tk.Tk):
             self.operator = '-'
         else:
             self.operator = 'x'
+
+    def correct_answer(self):
+        if self.player.mathmethod == 'Addition':
+            return self.num1 + self.num2
+        elif self.player.mathmethod == 'Subtraction':
+            return self.num1 - self.num2
+        else:
+            return self.num1 * self.num2
+
 
     def answer_check(self, answervar):        
         if answervar == str(self.correct_answer()):
