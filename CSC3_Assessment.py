@@ -50,9 +50,7 @@ class root(tk.Tk):
         tk.Button(self.LoginPageFrame, text='Go to Level Select', command=lambda: self.nextl()).grid()
 
     def nextl(self):
-        first_name=self.fnameEntry.get()
-        age=self.ageEntry.get()
-        self.player = User(first_name, age)
+        self.player = User(self.fnameEntry.get(), self.ageEntry.get())
         self.LevelSelect()
         self.LoginPageFrame.destroy()
 
