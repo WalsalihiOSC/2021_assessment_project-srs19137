@@ -53,6 +53,17 @@ class root(tk.Tk):
             tk.messagebox.showwarning('Name Error', 'Please enter your name')
         elif len(self.ageEntry.get()) == 0:
             tk.messagebox.showwarning('Age Error', 'Please enter your age')
+        elif len(self.ageEntry.get()) > 0:
+            try:
+                ageInt = int(self.ageEntry.get())
+                if ageInt == 0:
+                    tk.messagebox.showwarning('Age Entry Error', 'Are you sure you typed your age correctly?')
+                else:
+                    self.player = User(self.fnameEntry.get(), self.ageEntry.get(), True, int(0))
+                    self.LoginPage.destroy()
+                    self.LevelSelect()
+            except (TypeError, ValueError):
+                tk.messagebox.showwarning('Age Entry Error', 'Please enter your age in numbers')
         #self.player = User(self.fnameEntry.get(), self.ageEntry.get(), True)
         #self.LevelSelect()
         #self.LoginPageFrame.destroy()
