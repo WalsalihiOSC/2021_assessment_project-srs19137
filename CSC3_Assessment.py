@@ -80,7 +80,6 @@ class root(tk.Tk):
         self.dropdown.grid()        
         tk.Button(self.LevelSelectFrame, text='Go to Questions', command=lambda: self.nextq()).grid()
 
-
     def nextq(self):
         self.player.checklevel(self.level.get(), True)
         if self.player.verify == False:
@@ -106,6 +105,8 @@ class root(tk.Tk):
         self.ResultsScreenFrame.grid_propagate(False)
         tk.Label(self.ResultsScreenFrame, text='Results').grid()
         tk.Button(self.ResultsScreenFrame, text='Go to Login', command=lambda: self.LoginPage()).grid()
+        tk.Button(self.ResultsScreenFrame, text='Save your score', command=lambda: self.player.file_write()).grid()
+        tk.Button(self.ResultsScreenFrame, text='Quit program', command=lambda: quit()).grid()
     
     def restart(self):
         self.LoginPage()
