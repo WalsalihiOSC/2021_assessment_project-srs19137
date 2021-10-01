@@ -16,20 +16,17 @@ class User:
         user_file.write("End User File\n")
         user_file.close()
 
-    def checklevel(self, plevel, verify):
+    def check_question_amount(self, amount, verify):
         self.verify = verify
-        self.verify = True
         try:
-            plevel = int(plevel)
-            if plevel == 1:
-                return('Questions between 1 and 2')
-            elif plevel == 2:
-                return('Questions between 1- and 100')
+            pamount = int(amount)
+            if pamount > 0:
+                return pamount
         except:
             self.errormessage = 'Error: Not an Integer'
             self.verify = False
         else:
-            self.errormessage = 'Error: Integer outside given range'
+            self.errormessage = 'Error: Input is a negative'
             self.verify = False
 
 
