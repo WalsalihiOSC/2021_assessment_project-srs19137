@@ -64,9 +64,6 @@ class root(tk.Tk):
                     self.LevelSelect()
             except (TypeError, ValueError):
                 tk.messagebox.showwarning('Age Entry Error', 'Please enter your age in numbers')
-        #self.player = User(self.fnameEntry.get(), self.ageEntry.get(), True)
-        #self.LevelSelect()
-        #self.LoginPageFrame.destroy()
 
     def LevelSelect(self):
         self.LevelSelectFrame = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
