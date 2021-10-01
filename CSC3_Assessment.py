@@ -100,6 +100,21 @@ class root(tk.Tk):
         self.QuestionsFrame.grid()
         self.QuestionsFrame.grid_propagate(False)
 
+    def question_create(self):
+        self.num1 = (random.randint(0,2) * 10) + random.randint(0,9)
+        self.num2 = (random.randint(0,2) * 10) + random.randint(0,9)
+        if self.player.mathmethod == 'Addition':
+            self.operator = '+'
+        elif self.player.mathmethod == 'Subtraction':
+            self.operator = '-'
+        elif self.player.mathmethod == 'Multiplication':
+            self.operator = 'x'
+        else:
+            if self.num1 == 0:
+                self.num1 +=1
+            elif self.num2 == 0:
+                self.num2 +=1
+            self.operator = '÷'
     
     def nextr(self):
         self.ResultsScreen()
