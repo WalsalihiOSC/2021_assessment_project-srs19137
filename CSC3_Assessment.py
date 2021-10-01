@@ -106,24 +106,24 @@ class root(tk.Tk):
         self.question_window()
 
     def question_window(self):
-        tk.Label(self.QuestionsFrame, text='Questions').grid()
+        tk.Label(self.QuestionsFrame, text='Questions', relief=RIDGE).grid(row=0, column=0, sticky='NSEW', padx=50, pady=10, columnspan=2)
         self.question_create()
-        tk.Label(self.QuestionsFrame, text=f'{self.num1} {self.operator} {self.num2}').grid()
+        tk.Label(self.QuestionsFrame, text=f'{self.num1} {self.operator} {self.num2}', relief=RIDGE).grid(row=1, column=0, sticky=N)
         self.answerEntry = tk.Entry(self.QuestionsFrame)
-        self.answerEntry.grid()
-        tk.Label(self.QuestionsFrame, text=f'{self.player.current_score} / {self.q_number} questions completed').grid()
-        tk.Button(self.QuestionsFrame, text='Check Answer', command=lambda: self.answer_check(self.answerEntry.get())).grid()
+        self.answerEntry.grid(row=1, column=1)
+        tk.Label(self.QuestionsFrame, text=f'{self.player.current_score} / {self.q_number} questions completed', relief=RIDGE).grid(row=2,column=1)
+        tk.Button(self.QuestionsFrame, text='Check Answer', command=lambda: self.answer_check(self.answerEntry.get())).grid(row=2, column=2)
 
     def finished_window(self):
         self.QuestionsFrame = tk.Frame(self.frame_container, width=380, height=140, bg='#ADD8E6')
         self.QuestionsFrame.grid()
         self.QuestionsFrame.grid_propagate(False)        
-        tk.Label(self.QuestionsFrame, text='Questions').grid()
-        tk.Label(self.QuestionsFrame, text=f'{self.num1} {self.operator} {self.num2}').grid()
+        tk.Label(self.QuestionsFrame, text='Questions', relief=RIDGE).grid()
+        tk.Label(self.QuestionsFrame, text=f'{self.num1} {self.operator} {self.num2}', relief=RIDGE).grid(row=1, column=0, sticky=N)
         self.answerEntry = tk.Entry(self.QuestionsFrame, state=DISABLED, disabledbackground='#D3D3D3')
         self.answerEntry.grid()
-        tk.Label(self.QuestionsFrame, text=f'{self.player.current_score} / {self.q_number} questions completed').grid()
-        tk.Button(self.QuestionsFrame, text='Continue', command=lambda: self.nextr()).grid() 
+        tk.Label(self.QuestionsFrame, text=f'{self.player.current_score} / {self.q_number} questions completed', relief=RIDGE).grid(row=2,column=1)
+        tk.Button(self.QuestionsFrame, text='Continue', command=lambda: self.nextr()).grid(row=2, column=2) 
 
     def question_create(self):
         self.num1 = random.randint(0,30)
