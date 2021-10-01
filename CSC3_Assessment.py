@@ -63,7 +63,7 @@ class root(tk.Tk):
                 if ageInt == 0:
                     tk.messagebox.showwarning('Age Entry Error', 'Are you sure you typed your age correctly?')
                 else:
-                    self.player = User(self.fnameEntry.get(), self.ageEntry.get(), True)
+                    self.player = User(self.fnameEntry.get(), self.ageEntry.get(), True, int(0))
                     self.LoginPageFrame.destroy()
                     self.LevelSelect()
             except (TypeError, ValueError):
