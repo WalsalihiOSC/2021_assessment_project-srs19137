@@ -100,6 +100,15 @@ class root(tk.Tk):
         self.QuestionsFrame.grid()
         self.QuestionsFrame.grid_propagate(False)
 
+    def question_window(self):
+        tk.Label(self.QuestionsFrame, text='Questions').grid()
+        self.question_create()
+        tk.Label(self.QuestionsFrame, text=f'{self.num1} {self.operator} {self.num2}').grid()
+        self.answerEntry = tk.Entry(self.QuestionsFrame)
+        self.answerEntry.grid()
+        tk.Label(self.QuestionsFrame, text=f'{self.player.current_score} / {self.q_number} questions completed').grid()
+        tk.Button(self.QuestionsFrame, text='Check Answer', command=lambda: self.answer_check(self.answerEntry.get())).grid()
+
     def question_create(self):
         self.num1 = random.randint(0,30)
         self.num2 = random.randint(0,30)
