@@ -147,7 +147,6 @@ class root(tk.Tk):
         else:
             return self.num1 * self.num2
 
-
     def answer_check(self, answervar):        
         if answervar == str(self.correct_answer()):
             self.player.current_score += 1
