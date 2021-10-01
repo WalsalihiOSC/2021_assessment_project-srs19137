@@ -1,6 +1,7 @@
 import tkinter as tk
-from tkinter import messagebox
-import math
+from tkinter import StringVar, messagebox
+import random
+from tkinter.constants import DISABLED
 
 class User:
     def __init__(self, first_name, age, mathmethod):
@@ -147,8 +148,7 @@ class root(tk.Tk):
             self.QuestionsFrame.destroy()
             self.Questions()
             self.answerEntry.insert(0,'INCORRECT')
-            
-    
+
     def nextr(self):
         self.ResultsScreen()
         self.QuestionsFrame.destroy()
