@@ -28,7 +28,7 @@ class User:
             self.errormessage = 'Error: Not an Integer'
             self.verify = False
         else:
-            self.errormessage = 'Error: Input is a negative'
+            self.errormessage = 'Error: Input is a negative or is zero'
             self.verify = False
 
 
